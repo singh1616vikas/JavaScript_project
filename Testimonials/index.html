@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testominals using JavaScript</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <div class="container">
+        <div class="testimonial" id="testimonial-container"></div>
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+        
+    </div>
+
+    <script>
+       const testimonials = [
+        {
+            name: "Eva Sawyer",
+            job: "CEO, Fashworks",
+            image:"images/pic-1.png",
+            testimonial: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eum velit voluptatem vero doloremque perferendis voluptates minima repudiandae impedit labore? Assumenda, culpa. Aut minima recusandae sequi iure, fugit quibusdam consequatur?"
+        },
+        {
+            name: "John Doe",
+            job: "Developer, Tech",
+            image:"images/pic-2.png",
+            testimonial: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eum velit voluptatem vero doloremque perferendis voluptates minima repudiandae impedit labore? Assumenda, culpa. Aut minima recusandae sequi iure, fugit quibusdam consequatur?"
+        },
+        {
+            name: "Joe Robin",
+            job: "CEO, Zeal Wheels",
+            image:"images/pic-3.png",
+            testimonial: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eum velit voluptatem vero doloremque perferendis voluptates minima repudiandae impedit labore? Assumenda, culpa. Aut minima recusandae sequi iure, fugit quibusdam consequatur?"
+        }
+       ];
+       
+       let i= 0;
+       let j = testimonials.length;
+
+       let testimonialContainer = document.getElementById("testimonial-container");
+       let nextBtn = document.getElementById("next");
+       let prevBtn = document.getElementById("prev");
+
+       nextBtn.addEventListener("click", () => {
+        i = (j + i + 1)% j;
+        displayTestimonial();
+       });
+       prevBtn.addEventListener("click", () => {
+        i = (j + i - 1)% j;
+        displayTestimonial();
+       });
+
+       let displayTestimonial = () => {
+        testimonialContainer.innerHTML =  `
+            <p>${testimonials[i].testimonial}</p>
+            <img src = ${testimonials[i].image}>
+            <h2>${testimonials[i].name}</h2>
+            <h6>${testimonials[i].job}</h6>
+        `;
+       };
+       window.onload = displayTestimonial;
+
+    </script>
+</body>
+</html>

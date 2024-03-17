@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --dark: #374151;
+    --darker: #1f2937;
+    --darkest: #111827;
+    --gray: #687280;
+    --light: #eee;
+    --pink: #ec4899;
+    --purple: #885cf6;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--dark);
+    color: #fff;
+}
+
+header {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.task-form {
+    display: flex;
+
+}
+
+input,
+button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#input-task {
+    flex: 1 1 0%;
+    background-color: var(--darker);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--light);
+    font-size: 1.25rem;
+}
+
+#input-task::placeholder {
+    color: var(--gray);
+}
+
+#task-submit {
+    color: var(--pink);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: #f0f8ff;
+    border-radius: 1rem;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#task-submit:hover {
+    opacity: 0.8;
+}
+
+#task-submit:active {
+    opacity: 0.6;
+}
+
+main {
+    flex: 1 1 0%;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.task-list {
+    padding: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: #1f2937;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.content .text {
+    color: var(--light);
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+}
+
+.text:not(:read-only) {
+    color: var(--pink);
+}
+
+.actions {
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.actions button {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: 0.4s;
+}
+
+.actions button:hover {
+    opacity: 0.8;
+}
+
+.actions button:active {
+    opacity: 0.6;
+}
+
+.actions .edit {
+    color: var(--pink);
+}
+
+.actions .delete {
+    color: crimson;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number game</title>
+    <link rel="stylesheet" href="guess.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3>I am thinking of a number Between 1-100</h3>
+        <h3>Can you Guess it</h3>
+
+        <input type="text" placeholder="Num" id="guess"><br>
+        <button onclick="play()" id="my-btn">Guess</button>
+
+        <p id="message1">No. of Guess</p>
+        <p id="message2">Guessed number are : none</p>
+        <p id="message3"></p>
+    </div>
+
+    <script>
+        var msg1 = document.getElementById("message1");
+        var msg2 = document.getElementById("message2");
+        var msg3 = document.getElementById("message3");
+        var answer = Math.floor(Math.random() * 100) + 1;
+        var no_of_guesses = 0;
+        var guessed_num = [];
+
+        function play() {
+            var user_guess = document.getElementById("guess").value;
+
+            if (user_guess < 1 || user_guess > 100) {
+                alert("Please enter a number Between 1 to 100");
+            }
+            else {
+                guessed_num.push(user_guess);
+                no_of_guesses += 1;
+
+
+                if (user_guess < answer) {
+                    msg1.textContent = "your guess is too low"
+                    msg2.textContent = "no. of gusses : " +
+                        no_of_guesses;
+                    msg3.textContent = "Guessed number are: " +
+                        guessed_num;
+                }
+                else if (user_guess > answer) {
+                    msg1.textContent = "your guess is too high"
+                    msg2.textContent = "no. of gusses : " +
+                        no_of_guesses;
+                    msg3.textContent = "Guessed number are: " +
+                        guessed_num;
+                }
+                else if (user_guess == answer) {
+                    msg1.textContent = "Yahhh you won it!!"
+                    msg2.textContent = "the number was" + answer
+                    msg3.textContent = "you Guessed it in " + no_of_guesses + "Guesses";
+                    guessed_num;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
